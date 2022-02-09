@@ -7,3 +7,5 @@ class Wallet extends React.Component {
 }
 
 export default Wallet;
+
+// comitando, requisito 2 passou
