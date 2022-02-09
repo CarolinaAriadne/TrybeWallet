@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 
 class Header extends React.Component {
   render() {
-    const { email } = this.props;
+    const { emailUser } = this.props;
     return (
       <header>
-        <p data-testid="total-field">
-          { email }
+        <p data-testid="email-field">
+          Email:
+          { emailUser }
         </p>
         <section>
           <h4>Despesa total: R$</h4>
@@ -21,11 +22,11 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  email: PropTypes.string,
+  emailUser: PropTypes.string,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
-  email: state.user.email,
+  emailUser: state.user.email,
 });
 
 export default connect(mapStateToProps)(Header);
