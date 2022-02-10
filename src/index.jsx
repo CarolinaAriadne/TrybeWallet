@@ -20,3 +20,5 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+// "O <Provider>componente disponibiliza o Redux store para quaisquer componentes aninhados que precisem acessar a loja do Redux"

@@ -13,3 +13,6 @@ function App() {
 }
 
 export default App;
+
+// Aqui, passamos somente as rotas das páginas, para cada page/componente, uma rota foi definida.
+// REQ 2.

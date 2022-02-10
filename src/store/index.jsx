@@ -10,3 +10,5 @@ const store = createStore(
 );
 
 export default store;
+
+// minha createStore, que recebe como parâmetro, meu rootReducer (que guarda meus reducers, ou seja, na store estão os (alguns pelo menos) estados locais que foram enviados pra cá, pra passarem a ser globais e acessíveis a qualquer componente), além disso, recebe a função compose pra poder usar a extensão no navegador, e a função thunk, pra podermos utilizar thunk em actions assíncronas.

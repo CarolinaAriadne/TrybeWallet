@@ -13,3 +13,5 @@ const rootReducer = combineReducers({
 });
 
 export default rootReducer;
+
+// reducers definidos, estes estados são enviados para o corpo da função mapState, ou os dois ou um outro, já com a informação (estado) atualizado vindo do global.

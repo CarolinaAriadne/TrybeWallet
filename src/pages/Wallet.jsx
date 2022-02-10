@@ -11,4 +11,4 @@ class Wallet extends React.Component {
 
 export default Wallet;
 
-// comitando, requisito 2 passou
+// Page Wallet, aqui chamo meus componentes que compõe a page wallet.
