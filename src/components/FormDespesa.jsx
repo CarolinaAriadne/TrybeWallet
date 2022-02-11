@@ -62,6 +62,7 @@ class FormDespesa extends React.Component {
     return (
       <form>
         <label htmlFor="input-valor">
+          Valor
           <input
             type="text"
             id="input-valor"
@@ -72,6 +73,7 @@ class FormDespesa extends React.Component {
           />
         </label>
         <label htmlFor="input-descricao">
+          Descrição
           <input
             type="text"
             id="input-descricao"
@@ -82,7 +84,12 @@ class FormDespesa extends React.Component {
           />
         </label>
         <label htmlFor="chave-moedas">
-          <select data-testid="currency-input" id="chave-moedas" value={ currency } name="currency">
+          <select
+            data-testid="currency-input"
+            id="chave-moedas"
+            value={ currency }
+            name="currency"
+          >
             { moeda.map((cadaMoeda) => (
               <option key={ cadaMoeda } data-testid={ cadaMoeda }>
                 { cadaMoeda }
@@ -92,7 +99,12 @@ class FormDespesa extends React.Component {
           </select>
         </label>
         <label htmlFor="metodo-pgmto">
-          <select data-testid="method-input" id="metodo-pgmto" value={ method } name="method">
+          <select
+            data-testid="method-input"
+            id="metodo-pgmto"
+            value={ method }
+            name="method"
+          >
             <option>Dinheiro</option>
             <option>Cartão de crédito</option>
             <option>Cartão de débito</option>

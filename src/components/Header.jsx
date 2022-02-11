@@ -6,10 +6,22 @@ class Header extends React.Component {
 conversaoESomaDespesas = () => {
   const { recebendoDespesa } = this.props;
   console.log(recebendoDespesa);
+  console.log(recebendoDespesa[0]);
+
+  const cotacao = recebendoDespesa[0].exchangeRates[recebendoDespesa[0].currency].ask;
+  console.log(cotacao);
+  // recebendoDespesa.forEach((valorDespesa) =>
+
+  // )
 }
 
+// Após adicionar a despesa, atualize a soma total das despesas (utilize a chave ask para realizar essa soma). Essa informação deve ficar no header dentro do elemento com data-testid="total-field"
+
+// Após adicionar a despesa, limpe o valor do campo valor da despesa
+
 render() {
-  const { emailUser } = this.props;
+  const { emailUser, recebendoDespesa } = this.props;
+
   return (
     <header>
       <p data-testid="email-field">
@@ -36,7 +48,7 @@ const mapStateToProps = (state) => ({
   recebendoDespesa: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, null)(Header);
 
 // REQ 3: meu Header precisa renderizar meu  e- mail que foi preenchido no input login, logo, eu preciso receber o estado global neste componente, que está guardado na store, que é meu email
 // que foi preenchido no input e guardado na mesma.
