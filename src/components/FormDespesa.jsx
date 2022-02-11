@@ -13,26 +13,12 @@ class FormDespesa extends React.Component {
       currency: 'USD',
       method: 'Dinheiro',
       tag: 'Alimentação',
-      moeda: [],
     };
-  }
-
-  componentDidMount() {
-    this.requisitaApi();
   }
 
   handleChange = ({ target }) => {
     this.setState({
       [target.name]: target.value,
-    });
-  }
-
-  requisitaApi = async () => {
-    const requisicao = await fetch('https://economia.awesomeapi.com.br/json/all');
-    const retornoApi = await requisicao.json();
-    const chavesMoeda = Object.keys(retornoApi);
-    this.setState({
-      moeda: chavesMoeda.filter((moeda) => moeda !== 'USDT'),
     });
   }
 
@@ -58,7 +44,8 @@ class FormDespesa extends React.Component {
   }
 
   render() {
-    const { value, description, currency, method, tag, moeda } = this.state;
+    const { moedas } = this.props;
+    const { value, description, currency, method, tag } = this.state;
     return (
       <form>
         <label htmlFor="input-valor">
@@ -84,13 +71,15 @@ class FormDespesa extends React.Component {
           />
         </label>
         <label htmlFor="chave-moedas">
+          Moeda
           <select
             data-testid="currency-input"
             id="chave-moedas"
             value={ currency }
             name="currency"
+            onChange={ this.handleChange }
           >
-            { moeda.map((cadaMoeda) => (
+            { moedas.map((cadaMoeda) => (
               <option key={ cadaMoeda } data-testid={ cadaMoeda }>
                 { cadaMoeda }
               </option>
@@ -99,22 +88,33 @@ class FormDespesa extends React.Component {
           </select>
         </label>
         <label htmlFor="metodo-pgmto">
+          Método de pagamento
           <select
             data-testid="method-input"
             id="metodo-pgmto"
             value={ method }
             name="method"
+            onChange={ this.handleChange }
           >
-            <option>Dinheiro</option>
-            <option>Cartão de crédito</option>
-            <option>Cartão de débito</option>
+            <option value="Dinheiro">Dinheiro</option>
+            <option value="Cartão de crédito">Cartão de crédito</option>
+            <option value="Cartão de débito">Cartão de débito</option>
           </select>
         </label>
         <label htmlFor="categoria-despesa">
-          <select data-testid="tag-input" id="categoria-despesa" value={ tag } name="tag">
-            <option>Alimentação</option>
-            <option>Lazer</option>
-            <option>Trabalho</option>
+          Tag
+          <select
+            data-testid="tag-input"
+            id="categoria-despesa"
+            value={ tag }
+            name="tag"
+            onChange={ this.handleChange }
+          >
+            <option value="Alimentação">Alimentação</option>
+            <option value="Lazer">Lazer</option>
+            <option value="Trabalho">Trabalho</option>
+            <option value="Transporte">Transporte</option>
+            <option value="Saúde">Saúde</option>
           </select>
         </label>
         <button
@@ -136,4 +136,8 @@ const mapDispatchToProps = (dispatch) => ({
   enviarDespesa: (expense) => dispatch(fetchApiTotal(expense)),
 });
 
-export default connect(null, mapDispatchToProps)(FormDespesa);
+const mapStateToProps = (state) => ({
+  moedas: state.wallet.currencies,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormDespesa);
