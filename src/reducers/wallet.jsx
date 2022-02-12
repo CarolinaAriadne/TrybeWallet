@@ -28,3 +28,7 @@ const wallet = (state = INITIAL_STATE, action) => {
 };
 
 export default wallet;
+
+// Req 5 - parte 3 - importo MOEDAS, e caso o reducer receba MOEDAS, ele deve colocar dentro do estado inicial array currencies, o meu todasMoedas, que guarda minhas moedas retornada da API. Em caso de impossibilidade de tratar a action, o estado inicial é retornado para evitar o "estouro" de erro na tela do usuário. Esta action, após tratada, é enviado a minha store/estado global para ficar disponível para os componentes. Haverá no meu estado global, um objeto, com a chave currencies que possui as moedas para serem colocadas em um select por exemplo, ou qualquer otura tag que faça sentido.
+
+// REQ 4 parte 3 - Minha action é enviada ao reducer, que trata os dados recebidos, ou seja, recebe na chave  expenses (que é um array) do initial_state, meus estados locais do componente <enviadas ao apertar button enviar despesa> (despesas cadastradas no momento, mais as anterioes, por isso o ...action) e o retorno da API na chave exchangeRates. Tudo isso, guardado em um objeto, pq a chave exchangeRates da API é um objeto. Depois da action tratada, os dados são enviados para a store (combine reducer, recebe no reducer wallet, depois vai pro no store/estado global, todas essas informações)

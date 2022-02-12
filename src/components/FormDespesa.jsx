@@ -141,3 +141,11 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormDespesa);
+
+// REQ 5- parte 4 - meu Form já com seus inputs e demais tags realizadas, recebe do estado global, recebe o combineReducer, que possui meus reducers.  Defino uma chave pra este objeto, que será passado como prop, e nela guardo meu estado global, referente ao reducer wallet, referente a chave currencies, ou seja, o que está em moedas, são minhas moedas de fato que irão aparecer no select.
+// Desconstruo moedas como props. Dentro do select, passo meu map, que irá iterar sobre todas as moedas e mostrar na tela cada moeda, irá mostrar no select.
+
+// REQ 4: parte 1 - Montado o formDespesa, componente que irá exibir na tela inputs, selects etc, para que o usário interaja.
+// Nosso estado inicial começa com o id zero, pq não existe nenhuma despesa cadastrado de começo, com alguns inputs vazios, porém com outros campos já preenchidos assim que a  página carrega, como currency/method/tag. Conforme o usuário interaje com a tela, com os elementos, nosso estado é atualizado por meio da handleChange, assim que o evento ocorre (interação do usuário), essa função é chamada e "pega" o target (elemento que sofreu ação do usuário, sofreu evento), e passa para os elementos que sofreram a interação, exatamente aquilo que o usuário fez, ou seja, o value, o input terá o que foi digitado, o select passará a ter o que foi especificamente selecionado etc. Utilizado target.name, pois as tags possuem "name", logo, utilizando este atributo com .target, conseguimos fazer que essa função siva para todos os elementos.
+// Após o usuário cadastrar sua despesa, e clicar no button enviar despesa, uma action é disparada, isto é, a action fetchApiTotal com o parâmetro expense (despesa.)
+// OBS: depois que o botão de enviar despesa é apertado, eviarDespesa prop é recebida com os estados iniciais, sendo que o estado é atualizado no forms, no sentido do campo input value e description volta a ficar vazio "", bem como o id, vai receber id +1 a cada despesa cadastrada, despesa primeira 1, despesa segunda id 2, despesa terceira id 3, e assim por diante, em razão do incremento do id.
