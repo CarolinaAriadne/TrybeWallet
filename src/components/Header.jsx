@@ -52,7 +52,7 @@ Header.propTypes = {
 const mapStateToProps = (state) => ({
   emailUser: state.user.email,
   recebendoDespesa: state.wallet.expenses,
-  total: conversaoESomaDespesas(state.wallet.expenses),
+
 });
 
 export default connect(mapStateToProps, null)(Header);
