@@ -1,6 +1,7 @@
 export const LOGIN = 'LOGIN';
 export const DESPESAS = 'DESPESAS';
 export const MOEDAS = 'MOEDAS';
+export const DELETA = 'DELETA';
 
 export const sendEmailuser = (email) => ({
   type: LOGIN,
@@ -16,6 +17,11 @@ export const sendExpenses = (retornoApi, estadosLocais) => ({
 export const sendMoedas = (todasMoedas) => ({
   type: MOEDAS,
   todasMoedas,
+});
+
+export const deletExpense = (excluiDespesa) => ({
+  type: DELETA,
+  excluiDespesa,
 });
 
 export const fetchApiTotal = (estadosLocais) => async (dispatch) => { // thunk

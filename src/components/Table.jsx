@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { deletExpense } from '../actions';
 
 class Table extends React.Component {
   render() {
-    const { recebendoDespesa } = this.props;
+    const { recebendoDespesa, deletaDespesa } = this.props;
     console.log(recebendoDespesa);
     return (
       <section>
@@ -38,7 +39,15 @@ class Table extends React.Component {
                   ).toFixed(2)}
                 </td>
                 <td>Real</td>
-                <td>botão</td>
+                <td>
+                  <button
+                    type="button"
+                    data-testid="delete-btn"
+                    onClick={ () => deletaDespesa(despesa.id) }
+                  >
+                    Excluir
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -49,14 +58,19 @@ class Table extends React.Component {
 }
 
 Table.propTypes = {
-  recebendoDespesa: PropTypes.string,
+  recebendoDespesa: PropTypes.arrayOf,
+  deletaDespesa: PropTypes.func,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   recebendoDespesa: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps, null)(Table);
+const mapDispatchToProps = (dispatch) => ({
+  deletaDespesa: (excluiDespesa) => dispatch(deletExpense(excluiDespesa)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
 
 // FONTE DAS DEFINIÇÕES DAS TAGS ABAIXO: https://www.w3schools.com/
 // Tags tabela:
@@ -70,3 +84,5 @@ export default connect(mapStateToProps, null)(Table);
 // OBS: acesso:  <td>{despesa.exchangeRates[despesa.currency].name}</td>
 // <td>{Number(despesa.exchangeRates[despesa.currency].ask).toFixed(2)}</td>   : acesso a chave exchangeRates do objeto pai,  exchangeRates é um objeto filho que possui  propridades com a sigla de cada moeda como por ex, USD. Pra eu acessar a moeda que quero, primeiro, preciso acessar a chave currency do objeto pai, que possui o valor da moeda escolhida, com isso , tendo meu acesso em exchangeRates a chave USD, que é um objeto neto, e por fim a propriedade da USD name, que possui o nome da moeda por extenso.
 // Multiplicação, mesma lógica da 4.
+
+// REQ 8: assim que o usuário clica no button de excluir, function deletaDespesa (que passei como props), é chamada, a action deletExpense é disparada com seu parâmetro (definido na action). Continuação, no reducer.
