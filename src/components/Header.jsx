@@ -21,7 +21,7 @@ conversaoESomaDespesas = () => {
     return resultadoTotal.toFixed(2);
   }
   return 0;
-}
+}<
 
 render() {
   const { emailUser } = this.props;
