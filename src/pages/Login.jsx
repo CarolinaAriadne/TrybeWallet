@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { sendEmailuser } from '../actions';
+import '../styles/Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -46,35 +47,41 @@ class Login extends React.Component {
   render() {
     const { email, password, isDisable } = this.state;
     return (
-      <form onSubmit={ this.submitLogin }>
-        <h1>LOGIN</h1>
-        <label htmlFor="input-email">
-          <input
-            type="email"
-            id="input-email"
-            value={ email }
-            data-testid="email-input"
-            placeholder="Email"
-            onChange={ this.inputEmaileSenha }
-          />
-        </label>
-        <label htmlFor="input-senha">
-          <input
-            type="password"
-            id="input-senha"
-            value={ password }
-            placeholder="Senha"
-            data-testid="password-input"
-            onChange={ this.inputEmaileSenha }
-          />
-        </label>
-        <button
-          type="submit"
-          disabled={ isDisable }
-        >
-          Entrar
-        </button>
-      </form>
+      <section className="container-form-login">
+        <form className="form-login" onSubmit={ this.submitLogin }>
+          <h1>LOGIN</h1>
+          <label htmlFor="input-email">
+            <input
+              type="email"
+              id="input-email"
+              className="form-dado"
+              value={ email }
+              data-testid="email-input"
+              placeholder="Email"
+              onChange={ this.inputEmaileSenha }
+            />
+          </label>
+          <label htmlFor="input-senha">
+            <input
+              type="password"
+              id="input-senha"
+              className="form-dado"
+              value={ password }
+              placeholder="Senha"
+              data-testid="password-input"
+              onChange={ this.inputEmaileSenha }
+            />
+          </label>
+          <button
+            type="submit"
+            className="button-entrar"
+            disabled={ isDisable }
+          >
+            Entrar
+          </button>
+        </form>
+      </section>
+
     );
   }
 }
