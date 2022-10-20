@@ -2,16 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deletExpense } from '../actions';
+import '../styles/Table.css';
 
 class Table extends React.Component {
   render() {
     const { recebendoDespesa, deletaDespesa } = this.props;
-    console.log(recebendoDespesa);
+    // console.log(recebendoDespesa);
     return (
-      <section>
+      <section className="container-table">
         <table>
-          <thead>
-            <tr>
+          <thead className="header-table">
+            <tr className="tr">
               <th>Descrição</th>
               <th>Tag</th>
               <th>Método de pagamento</th>
@@ -23,7 +24,7 @@ class Table extends React.Component {
               <th>Editar/Excluir</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="table-body">
             {recebendoDespesa.map((despesa) => (
               <tr key={ despesa.id }>
                 {console.log(despesa.exchangeRates[despesa.currency].name)}
@@ -41,6 +42,7 @@ class Table extends React.Component {
                 <td>Real</td>
                 <td>
                   <button
+                    className="btn-exclui-despesa"
                     type="button"
                     data-testid="delete-btn"
                     onClick={ () => deletaDespesa(despesa.id) }

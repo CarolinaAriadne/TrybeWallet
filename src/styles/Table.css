@@ -1,0 +1,13 @@
+.container-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100px;
+}
+
+.header-table {
+  background-color: rgb(48, 48, 48);
+  color: white;
+  height: 62px;
+}
