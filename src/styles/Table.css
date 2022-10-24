@@ -1,13 +1,26 @@
 .container-table {
   display: flex;
   flex-direction: column;
+  height: 100px;
   justify-content: center;
   text-align: center;
-  height: 100px;
+
 }
 
 .header-table {
-  background-color: rgb(48, 48, 48);
-  color: white;
+  background-color: rgb(152, 251, 152, 0.5);
+  color: black;
   height: 62px;
+}
+
+.table-body { border-bottom: 1px solid rgb(234, 234, 234);
+  height: 70px;
+}
+
+.btn-exclui-despesa {
+  border-radius: 0.5px;
+  box-shadow: 0px 0px 10px 1px rgba(24, 139, 34, 0.5);
+  height: 25px;
+  margin: 32px 10 10px;
+  width: 60px;
 }

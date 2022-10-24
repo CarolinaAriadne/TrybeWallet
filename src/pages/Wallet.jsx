@@ -5,6 +5,7 @@ import FormDespesa from '../components/FormDespesa';
 import Header from '../components/Header';
 import { fetchApiMoedas } from '../actions';
 import Table from '../components/Table';
+import '../styles/Wallet.css';
 
 class Wallet extends React.Component {
   componentDidMount() {
@@ -14,11 +15,11 @@ class Wallet extends React.Component {
 
   render() {
     return (
-      <>
+      <main className="container-main">
         <Header />
         <FormDespesa />
         <Table />
-      </>
+      </main>
     );
   }
 }

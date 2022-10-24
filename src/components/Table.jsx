@@ -12,7 +12,7 @@ class Table extends React.Component {
       <section className="container-table">
         <table>
           <thead className="header-table">
-            <tr className="tr">
+            <tr>
               <th>Descrição</th>
               <th>Tag</th>
               <th>Método de pagamento</th>
