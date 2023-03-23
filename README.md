@@ -1,6 +1,6 @@
-Habilidades compostas no projeto:
+## Foi  criada uma carteira de controle de consumos com conversor de moedas, onde é possível visualizar uma tabela com gastos, além do total destes gastos convertidos para uma moeda de escolha.
 
-Desenvolvimento utilizando as bibliotecas React e Redux.
+Ferramentas utilizadas: ReactJS, Redux e CSS3.
 
-Foi  criada uma carteira de controle de consumos com conversor de moedas, onde é possível visualizar uma tabela com gastos, além do total destes gastos convertidos para uma moeda de escolha. 
+ 
 
